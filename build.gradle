@@ -25,12 +25,7 @@ ext['micronautDataModelVersion'] = '1.1.0'
 ext['jacksonVersion'] = '2.12.0-rc1'
 ext['groovy.version'] = '${gradleVersion}'
 
-//version "0.1"
-//group "hardware"
-
-
-
-//apply from: "test.gradle"
+apply from: "test.gradle"
 
 repositories {
     mavenCentral()
@@ -74,11 +69,7 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql:${postgresqlVersion}")
     runtimeOnly("ch.qos.logback:logback-classic:${logbackVersion}")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin:${jacksonVersion}")
-    testImplementation("io.micronaut:micronaut-inject-groovy:${micronautVersion}")
-    testImplementation("org.spockframework:spock-core:${spockVersion}") {
-        exclude group: "org.codehaus.groovy", module: "groovy-all"
-    }
-    testImplementation("io.micronaut.test:micronaut-test-spock:${micronautSpockVersion}")
+
 }
 
 test.classpath += configurations.developmentOnly
@@ -111,12 +102,6 @@ compileTestKotlin {
     }
 }
 kapt {
-    // arguments {
-    //     arg("micronaut.processing.incremental", true)
-    //     arg("micronaut.processing.annotations", "com.example.*")
-    //     arg("micronaut.processing.group", "com.example")
-    //     arg("micronaut.processing.module", "finance")
-    // }
 }
 
 shadowJar {
