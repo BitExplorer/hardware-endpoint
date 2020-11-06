@@ -45,4 +45,31 @@ class ComputerSpec extends Specification {
         violations.isEmpty()
         0 * _
     }
+
+
+//    @Unroll
+//    def "test validation invalid #invalidField has error #expectedError"() {
+//        given:
+//        Computer computer = new ComputerBuilder()
+//                .accountType(accountType)
+//                .moniker(moniker)
+//                .accountNameOwner(accountNameOwner)
+//                .activeStatus(activeStatus)
+//                .totals(totals)
+//                .totalsBalanced(totalsBalanced)
+//                .build()
+//
+//        when:
+//        Set<ConstraintViolation<Computer>> violations = validator.validate(computer)
+//
+//        then:
+//        violations.size() == errorCount
+//        violations.message.contains(expectedError)
+//        violations.iterator().next().getInvalidValue() == computer.getProperties()[invalidField]
+//
+//        where:
+//        invalidField       | accountId | accountType        | accountNameOwner   | moniker | activeStatus | totals                 | totalsBalanced         | expectedError                              | errorCount
+//        'accountNameOwner' | 123L      | AccountType.Debit  | 'blah_chase_brian' | '0000'  | true         | new BigDecimal("0.00") | new BigDecimal("0.00") | 'must be alpha separated by an underscore' | 1
+//    }
+
 }
