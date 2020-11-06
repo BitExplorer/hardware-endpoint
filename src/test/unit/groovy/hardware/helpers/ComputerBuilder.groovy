@@ -53,4 +53,19 @@ class ComputerBuilder {
 
         return computer
     }
+
+    ComputerBuilder computerName(computerName) {
+        this.computerName = computerName
+        return this
+    }
+
+    ComputerBuilder processor(processor) {
+        this.processor = processor
+        return this
+    }
+
+    //    ComputerBuilder () {
+//        this. =
+//        return this
+//    }
 }
