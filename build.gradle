@@ -12,6 +12,8 @@ plugins {
 }
 
 ext['micronautVersion'] = '2.1.2'
+ext['micronautDataVersion'] = '2.1.1'
+ext['micronautSpockVersion'] = '2.2.1'
 ext['jdbcTomcatVersion'] = '2.2.6'
 ext['kotlinVersion'] = '1.4.10'
 ext['postgresqlVersion'] = '42.2.18'
@@ -19,9 +21,6 @@ ext['gradleVersion'] = '6.7'
 ext['jacksonVersion'] = '2.12.0-rc1'
 ext['logbackVersion'] = '1.2.3'
 ext['spockVersion'] = '2.0-M4-groovy-3.0'
-ext['micronautSpockVersion'] = '2.2.1'
-ext['micronautDataVersion'] = '2.1.1'
-ext['micronautDataModelVersion'] = '1.1.0'
 ext['jacksonVersion'] = '2.12.0-rc1'
 ext['groovy.version'] = '${gradleVersion}'
 
@@ -51,7 +50,6 @@ wrapper {
 dependencies {
     kapt(platform("io.micronaut:micronaut-bom:${micronautVersion}"))
     kapt("io.micronaut:micronaut-inject-java:${micronautVersion}")
-//    kapt("io.micronaut:micronaut-validation:${micronaut-validation}")
     implementation(platform("io.micronaut:micronaut-bom:${micronautVersion}"))
     implementation("io.micronaut:micronaut-inject:${micronautVersion}")
     implementation("io.micronaut:micronaut-validation:${micronautVersion}")
@@ -61,7 +59,7 @@ dependencies {
     implementation("io.micronaut:micronaut-runtime:${micronautVersion}")
     implementation("io.micronaut:micronaut-http-server-netty:${micronautVersion}")
     implementation("io.micronaut:micronaut-http-client:${micronautVersion}")
-    implementation("io.micronaut.data:micronaut-data-model:${micronautDataModelVersion}")
+    implementation("io.micronaut.data:micronaut-data-model:${micronautDataVersion}")
     implementation("io.micronaut.data:micronaut-data-hibernate-jpa:${micronautDataVersion}")
     kapt("io.micronaut.data:micronaut-data-processor:${micronautDataVersion}")
     implementation("io.micronaut.data:micronaut-data-jdbc:${micronautDataVersion}")
@@ -69,7 +67,6 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql:${postgresqlVersion}")
     runtimeOnly("ch.qos.logback:logback-classic:${logbackVersion}")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin:${jacksonVersion}")
-
 }
 
 test.classpath += configurations.developmentOnly

@@ -54,9 +54,15 @@ data class Computer(
 
         @field:Size(min = 1, max = 50)
         @field:Convert(converter = LowerCaseConverter::class)
-        @Column(name = "operating_system", unique = true, nullable = false)
+        @Column(name = "primary_operating_system", unique = true, nullable = false)
         @JsonProperty
-        var operatingSystem: String,
+        var primaryOperatingSystem: String,
+
+        @field:Size(min = 1, max = 50)
+        @field:Convert(converter = LowerCaseConverter::class)
+        @Column(name = "secondary_operating_system", unique = true, nullable = false)
+        @JsonProperty
+        var secondaryOperatingSystem: String,
 
         @field:Size(min = 1, max = 50)
         @field:Convert(converter = LowerCaseConverter::class)
@@ -120,6 +126,12 @@ data class Computer(
 
         @field:Size(min = 1, max = 50)
         @field:Convert(converter = LowerCaseConverter::class)
+        @Column(name = "network_port", unique = true, nullable = false)
+        @JsonProperty
+        var networkPort: String,
+
+        @field:Size(min = 1, max = 50)
+        @field:Convert(converter = LowerCaseConverter::class)
         @Column(name = "notes", unique = true, nullable = false)
         @JsonProperty
         var notes: String
@@ -128,7 +140,7 @@ data class Computer(
 
     constructor() : this(0L, "","","","","","",
             "","", "","","","","","",
-            "","","")
+            "","","", "", "")
 
     override fun toString(): String = mapper.writeValueAsString(this)
 
