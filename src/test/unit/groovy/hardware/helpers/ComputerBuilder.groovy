@@ -64,6 +64,46 @@ class ComputerBuilder {
         return this
     }
 
+    ComputerBuilder processorCodename(processorCodename) {
+        this.processorCodename = processorCodename
+        return this
+    }
+
+    ComputerBuilder motherboard(motherboard) {
+        this.motherboard = motherboard
+        return this
+    }
+
+    ComputerBuilder motherboardChipset(motherboardChipset) {
+        this.motherboardChipset = motherboardChipset
+        return this
+    }
+
+        ComputerBuilder primaryOperatingSystem(primaryOperatingSystem) {
+        this.primaryOperatingSystem = primaryOperatingSystem
+        return this
+    }
+
+    ComputerBuilder secondaryOperatingSystem(secondaryOperatingSystem) {
+        this.secondaryOperatingSystem = secondaryOperatingSystem
+        return this
+    }
+
+    ComputerBuilder location(location) {
+        this.location = location
+        return this
+    }
+
+    //    ComputerBuilder () {
+//        this. =
+//        return this
+//    }
+
+    //    ComputerBuilder () {
+//        this. =
+//        return this
+//    }
+
     //    ComputerBuilder () {
 //        this. =
 //        return this
