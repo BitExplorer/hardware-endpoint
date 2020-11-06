@@ -1,0 +1,23 @@
+micronaut:
+  server:
+    port: ${SERVER_PORT}
+    cors:
+      enabled: true
+  application:
+    name: hardware-endpoint
+datasources:
+  default:
+    url: ${DATASOURCE}
+    driverClassName: ${DATASOURCE_DRIVER}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+    #    schema-generate: CREATE_DROP
+    schema-generate: NONE
+    dialect: POSTGRES
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true

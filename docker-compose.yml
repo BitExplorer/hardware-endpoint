@@ -1,0 +1,52 @@
+version: "3.7"
+services:
+  hardware-endpoint:
+    build:
+      context: ./
+      args:
+       - APP=hardware-endpoint
+       - TIMEZONE=America/Chicago
+       - USERNAME=henninb
+      dockerfile: Dockerfile
+    container_name: hardware-endpoint
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"
+#    mem_limit: 1024m
+    volumes:
+      - ./logs:/opt/hardware-endpoint/logs
+      - ./ssl:/opt/hardware-endpoint/ssl
+    extra_hosts:
+      - "hornsup:${HOST_IP}"
+    env_file:
+      - env.secrets
+    depends_on:
+      - influxdb-server
+      - postgresql-server
+  influxdb-server:
+    image: influxdb:latest
+#    user: "${CURRENT_UID}:${CURRENT_GID}"
+    container_name: influxdb-server
+    ports:
+      - "8086:8086"
+    expose:
+      - "8086"
+    env_file:
+      - env.influx
+      - env.secrets
+  postgresql-server:
+    image: postgres:12.4
+    user: "${CURRENT_UID}:${CURRENT_GID}"
+    container_name: postgresql-server
+    ports:
+      - "5433:5432"
+    expose:
+      - "5433"
+    env_file:
+      - env.postgresql
+    volumes:
+      - ./database-data:/var/lib/postgresql/data
+networks:
+  default:
+    name: endpoint-net
