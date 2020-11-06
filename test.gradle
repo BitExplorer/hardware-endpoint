@@ -56,6 +56,8 @@ dependencies {
         exclude group: "org.codehaus.groovy", module: "groovy-all"
     }
     testImplementation("io.micronaut.test:micronaut-test-spock:${micronautSpockVersion}")
+    testImplementation "org.apache.tomcat:tomcat-el-api:9.0.39"
+    testImplementation "org.apache.tomcat:tomcat-jasper-el:9.0.39"
 }
 
 //provide dependency scopes

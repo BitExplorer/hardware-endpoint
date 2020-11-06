@@ -22,6 +22,12 @@ ext['jacksonVersion'] = '2.12.0-rc1'
 ext['logbackVersion'] = '1.2.3'
 ext['spockVersion'] = '2.0-M4-groovy-3.0'
 ext['jacksonVersion'] = '2.12.0-rc1'
+ext['validationVersion'] = '2.0.1.Final'
+ext['hibernateVersion'] = '5.4.23.Final'
+ext['hibernateValidatorVersion'] = '6.1.6.Final'
+ext['hibernateJpaVersion'] = '1.0.2'
+
+
 ext['groovy.version'] = '${gradleVersion}'
 
 apply from: "test.gradle"
@@ -67,6 +73,16 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql:${postgresqlVersion}")
     runtimeOnly("ch.qos.logback:logback-classic:${logbackVersion}")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin:${jacksonVersion}")
+
+
+    //hibernate
+    //implementation("org.hibernate:hibernate-core:${hibernateVersion}")
+    //implementation("org.hibernate.javax.persistence:hibernate-jpa-2.1-api:${hibernateJpaVersion}")
+
+    //Validation
+    implementation("javax.validation:validation-api:${validationVersion}")
+    implementation "org.hibernate:hibernate-validator:${hibernateValidatorVersion}"
+    implementation "org.hibernate:hibernate-validator-annotation-processor:${hibernateValidatorVersion}"
 }
 
 test.classpath += configurations.developmentOnly

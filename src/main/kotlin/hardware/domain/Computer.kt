@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.databind.ObjectMapper
 import hardware.utils.LowerCaseConverter
+import io.micronaut.validation.Validated
 import org.hibernate.annotations.Proxy
 import javax.persistence.*
 import javax.validation.constraints.Min
@@ -14,6 +15,7 @@ import javax.validation.constraints.Size
 @Proxy(lazy = false)
 @Table(name = "t_computer")
 @JsonIgnoreProperties(ignoreUnknown = true)
+//@Validated
 data class Computer(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)

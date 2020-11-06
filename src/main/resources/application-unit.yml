@@ -1,0 +1,23 @@
+micronaut:
+  server:
+    port: 8080
+    cors:
+      enabled: true
+  application:
+    name: hardware-endpoint
+datasources:
+  default:
+    url: jdbc:postgresql://hornsup:5432/hardware_db
+    driverClassName: org.postgresql.Driver
+    username: henninb
+    password: monday1
+    #    schema-generate: CREATE_DROP
+    schema-generate: NONE
+    dialect: POSTGRES
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true
